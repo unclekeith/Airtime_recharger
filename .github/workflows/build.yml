@@ -1,4 +1,5 @@
 name: Build APK
+
 on:
   push:
     branches:
@@ -6,18 +7,17 @@ on:
   pull_request:
     branches:
       - build-app
-      
 
 jobs:
   build-android:
     name: Build for Android
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout Code
         uses: actions/checkout@v4
 
-      # Cache build dependencies like pip, Buildozer, Gradle, and Android SDK
-      - name: Cache dependencies
+      - name: Cache Build Dependencies
         uses: actions/cache@v4
         with:
           path: |
@@ -26,20 +26,20 @@ jobs:
             ~/.gradle/caches
             ~/.gradle/wrapper
             ~/.android
-          key: ${{ runner.os }}-buildozer-cache
+          key: ${{ runner.os }}-buildozer-${{ hashFiles('buildozer.spec') }}
           restore-keys: |
-            ${{ runner.os }}-buildozer-cache
+            ${{ runner.os }}-buildozer
 
-      - name: Install Buildozer dependencies
+      - name: Install Buildozer Dependencies
         run: |
           sudo apt update
           sudo apt install -y git zip unzip python3-pip autoconf libtool pkg-config \
             zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake \
             libffi-dev libssl-dev automake
-          python3 -m pip install --user --upgrade Cython virtualenv
-          python3 -m pip install --user --upgrade buildozer
+          python3 -m pip install --upgrade --user Cython virtualenv
+          python3 -m pip install --upgrade --user buildozer
 
-      - name: Set up Java 17
+      - name: Set up Java 17 (for Android build tools)
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
@@ -47,12 +47,14 @@ jobs:
 
       - name: Build APK with Buildozer
         run: |
-          export PATH=$PATH:~/.local/bin
-          cd frontend
+          export PATH=$HOME/.local/bin:$PATH
+          # Adjust path if your main.py and buildozer.spec are in a subfolder
+          # If everything is in root, comment out this cd line
+          # cd frontend
           yes | buildozer -v android debug
 
-      - name: Upload APK artifact
+      - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: package
+          name: app-debug-apk
           path: bin/*.apk
