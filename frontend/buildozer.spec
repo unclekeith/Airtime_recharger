@@ -74,7 +74,7 @@ requirements = python3,
 #presplash.filename = %(source.dir)s/data/images/final.png
 
 # (str) Icon of the application
-icon.filename = %(source.dir)s/data/images/final.png
+icon.filename = %(source.dir)s/data/images/p2.png
 
 # (list) Supported orientations
 # Valid options are: landscape, portrait, portrait-reverse or landscape-reverse
@@ -509,3 +509,4 @@ warn_on_root = 1
 #        buildozer --profile demo android debug
 #
 #   Environment variable overrides have priority over profile overrides.
+log_level = 2
