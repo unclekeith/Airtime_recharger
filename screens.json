@@ -1,0 +1,52 @@
+{
+    "welcome": {
+        "module": "libs.uix.baseclass.screens.auth.welcome",
+        "class": "WelcomeScreen",
+        "kv": "libs/uix/kv/screens/auth/welcome.kv"
+    },
+    "econet_dashboard": {
+        "module": "libs.uix.baseclass.screens.econet.econet_dashboard",
+        "class": "EconetDashboardScreen",
+        "kv": "libs/uix/kv/screens/econet/econet_dashboard.kv"
+    },
+    "netone_dashboard": {
+        "module": "libs.uix.baseclass.screens.netone.netone_dashboard",
+        "class": "NetoneDashboardScreen",
+        "kv": "libs/uix/kv/screens/netone/netone_dashboard.kv"
+    },
+    "econet_dial": {
+        "module": "libs.uix.baseclass.screens.econet.econet_dial",
+        "class": "EconetDialScreen",
+        "kv": "libs/uix/kv/screens/econet/econet_dial.kv"
+    },
+    "netone_dial": {
+        "module": "libs.uix.baseclass.screens.netone.netone_dial",
+        "class": "NetoneDialScreen",
+        "kv": "libs/uix/kv/screens/netone/netone_dial.kv"
+    },
+    "econet_help": {
+        "module": "libs.uix.baseclass.screens.econet.econet_help",
+        "class": "EconetHelpScreen",
+        "kv": "libs/uix/kv/screens/econet/econet_help.kv"
+    },
+    "netone_help": {
+        "module": "libs.uix.baseclass.screens.netone.netone_help",
+        "class": "NetoneHelpScreen",
+        "kv": "libs/uix/kv/screens/netone/netone_help.kv"
+    },
+    "scan": {
+        "module": "libs.uix.baseclass.screens.scan.scan",
+        "class": "BarcodeScannerScreen"
+    },
+    "history": {
+        "module": "libs.uix.baseclass.screens.history.history",
+        "class": "HistoryScreen",
+        "kv": "libs/uix/kv/screens/history/history.kv"
+    },
+    "network_provider":{
+        "module": "libs.uix.baseclass.screens.auth.network_provider",
+        "class": "NetworkProvider",
+        "kv": "libs/uix/kv/screens/auth/network_provider.kv"
+
+    }
+}

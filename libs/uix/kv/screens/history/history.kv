@@ -1,0 +1,41 @@
+#:import dp kivy.metrics.dp
+
+<HistoryScreen>:
+    name: "history"
+    md_bg_color: app.theme_cls.backgroundColor
+
+    MDLabel:
+        text: "History not found"
+        halign: "center"
+        pos_hint: {"center_x": 0.5, "center_y": 0.7}
+
+    TooltipIconWithRichText:
+        pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+
+<TooltipIconWithRichText@BoxLayout>:
+    orientation: "vertical"
+    spacing: dp(10)
+    size_hint: None, None
+    size: self.minimum_size
+
+    MDIconButton:
+        icon: "information"
+        tooltip_text: "Click for more info"
+        on_release: app.show_tooltip(self)  # This line is now correctly calling the app method
+
+
+<CustomTooltip@MDTooltipRich>:
+    id: tooltip
+    auto_dismiss: False
+
+    MDTooltipRichSubhead:
+        text: "Add others"
+
+    MDTooltipRichSupportingText:
+        text: "Reflect tax withholdings."
+
+    MDTooltipRichActionButton:
+        on_press: tooltip.dismiss()
+        MDButtonText:
+            text: "Learn more"

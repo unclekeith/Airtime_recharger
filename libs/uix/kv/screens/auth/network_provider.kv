@@ -1,0 +1,73 @@
+<NetworkProvider>
+    md_bg_color: app.theme_cls.backgroundColor
+
+    MDLabel:
+        markup: True
+        valign: 'middle'
+        halign: 'center'
+        text: f'[color=black][size=22sp][b]Choose your network provider [/color][/b][/size]'
+        pos_hint: {"center_x":.5, "center_y": .7}
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        pos_hint: {'center_x': 0.5,'center_y': 0.6}
+        size_hint: .9, .5
+        spacing: dp(10)
+        padding: dp(50),0,0,dp(50)
+
+        Card1:
+            on_release: root.econet_next()
+
+        Card2:
+            on_release: root.netone_next()
+
+
+
+<Card1@MDCard>:
+    orientation: 'horizontal'
+    theme_bg_color: "Custom"
+    md_bg_color: "#008080"
+    radius: dp(16)
+    padding: dp(25)
+    size_hint: None, None
+    size: dp(245), dp(55)
+
+    MDLabel:
+        id: text
+        pos_hint: {"top": 1}
+        markup: True
+        text: '[color="black"][size=16sp][b] Econet[/b][/size][/color]'
+
+    MDIcon:
+        id: icon
+        pos_hint: {"center_y": .5}
+        icon: 'access-point-network'
+        theme_font_size: "Custom"
+        font_size: sp(24)
+        theme_icon_color:"Custom"
+        icon_color:"black"
+
+<Card2@MDCard>:
+    orientation: 'horizontal'
+    theme_bg_color: "Custom"
+    md_bg_color: "#008080"
+    radius: dp(16)
+    padding: dp(30)
+    size_hint: None, None
+    size: dp(245), dp(55)
+
+
+    MDLabel:
+        id: text
+        pos_hint: {"top": 1}
+        markup: True
+        text: '[color="black"][size=16sp][b] Netone[/b][/size][/color]'
+
+    MDIcon:
+        id: icon
+        pos_hint: {"center_y": .5}
+        icon: 'access-point-network'
+        theme_font_size: "Custom"
+        font_size: sp(24)
+        theme_icon_color:"Custom"
+        icon_color:"black"

@@ -1,0 +1,42 @@
+<NetoneDialScreen>
+
+    md_bg_color: app.theme_cls.backgroundColor
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        pos_hint: {'center_x': 0.5,'center_y': 0.5}
+        size_hint: .9, .5
+        spacing: dp(7)
+        padding: 0,0,0,dp(60)
+
+        MDBoxLayout:
+            orientation: 'horizontal'
+            spacing: dp(8)
+            size_hint_x: .9
+            pos_hint: {'center_x': 0.5, "center_y": 0.99}
+            padding: 0,0,0,dp(70)
+
+
+            MDTextField:
+                id: scratch_number
+                pos_hint: {'center_x': 0.5}
+                allow_copy: False
+                radius: dp(9)
+
+                MDTextFieldHintText:
+                    text: " Scratch card number"
+
+                MDTextFieldTrailingIcon:
+                    icon: 'eye'
+
+
+        MDButton:
+            pos_hint: {'center_x': 0.5}
+            on_release: root.numbers()
+            radius: dp(0)
+
+            MDButtonText:
+                text: "Dial"
+
+            MDButtonIcon:
+                icon: 'gesture-tap-box'

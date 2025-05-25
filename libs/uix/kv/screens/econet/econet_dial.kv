@@ -1,0 +1,39 @@
+<EconetDialScreen>:
+    name: "econet_dial"
+    md_bg_color: app.theme_cls.backgroundColor
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        padding: dp(20)
+        spacing: dp(20)
+        pos_hint: {'center_x': 0.5, 'center_y': 0.5}
+        size_hint: 0.9, None
+        height: self.minimum_height
+
+        MDLabel:
+            text: "Enter Scratch Card Number"
+            halign: "center"
+            theme_text_color: "Primary"
+            font_style: "H6"
+
+        MDTextField:
+            id: scratch_number
+            hint_text: "Scratch Card Number"
+            mode: "rectangle"
+            max_text_length: 16
+            helper_text: "Digits only"
+            helper_text_mode: "on_focus"
+            input_filter: 'int'
+            icon_right: "credit-card-outline"
+            radius: [12, 12, 12, 12]
+
+        MDButton:
+            pos_hint: {"center_x": 0.5}
+            on_release: root.numbers()
+            md_bg_color: app.theme_cls.primary_color
+            text_color: 1, 1, 1, 1
+            elevation: 4
+            radius: [20, 20, 20, 20]
+            MDButtonText:
+                text: "Dial"    
+            

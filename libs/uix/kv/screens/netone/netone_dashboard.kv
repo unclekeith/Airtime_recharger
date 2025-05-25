@@ -1,0 +1,177 @@
+<NetoneDashboardScreen>
+    md_bg_color: app.theme_cls.backgroundColor
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        pos_hint: {'center_x': 0.5,'top':.93}
+        size_hint: None, None
+        height: dp(180)
+        width: dp(320)
+
+        FitImage:
+            source: "data/images/p2.png"
+
+    MDBoxLayout:
+        orientation: 'vertical'
+        pos_hint: {'center_x': 0.5,'center_y': 0.44}
+        size_hint: .9, .5
+        spacing: dp(7)
+        padding: 0,0,0,dp(60)
+
+        
+        MDBoxLayout:
+            orientation: 'vertical'
+            padding: 0, 0, 0, dp(70)
+            size_hint_y: None
+            size_hint_y: .08
+
+            MDBoxLayout:
+                orientation: 'horizontal'
+                spacing: dp(30)
+                size_hint_x: .9
+                pos_hint: {"center_x": .5, 'center_y': .9}
+
+                MyCard1:
+                    id: dial_card
+                    on_release: root.manager.push("netone_dial")
+
+                MyCard2:
+                    id: scan_card
+                    on_release: root.manager.push("scan")
+
+            MDBoxLayout:
+                orientation: 'horizontal'
+                size_hint_x: .9
+                pos_hint: {"center_x": .5}
+                spacing: dp(30)
+
+                MyCard3:
+                    id: rate_card
+                    on_release: root.show_event_dialog()
+
+                MyCard4:
+                    id: help_card
+                    on_release: root.manager.push("netone_help")
+
+    
+
+    MDFabButton:
+        id: history_button
+        icon:"history"
+        theme_bg_color:"Custom"
+        md_bg_color:"#008080"
+        theme_icon_color:"Custom"
+        icon_color:"black"
+        pos_hint: {"right": .95, "center_y": .2}
+        on_release: root.fetch_history()
+    
+    MDFabButton:
+        icon:"phone"
+        theme_bg_color:"Custom"
+        md_bg_color:"#008080"
+        theme_icon_color:"Custom"
+        icon_color:"black"
+        pos_hint: {"right": .95, "center_y": .11}
+        on_release: root.request_android_permissions()
+
+
+<MyCard1@MDCard>:
+    id: mycard1  # Set the ID here
+    orientation: 'horizontal'
+    theme_bg_color: "Custom"
+    md_bg_color: "#008080"
+    radius: dp(16)
+    padding: dp(25)
+    size_hint: None, None
+    size: dp(145), dp(75)
+
+    MDLabel:
+        id: text
+        pos_hint: {"top": 1}
+        markup: True
+        text: '[color="black"][size=16sp][b] Dial code[/b][/size][/color]'
+
+    MDIcon:
+        id: icon
+        pos_hint: {"center_y": .5}
+        icon: 'phone-dial'
+        theme_font_size: "Custom"
+        font_size: sp(24)
+        theme_icon_color:"Custom"
+        icon_color:"black"
+
+<MyCard2@MDCard>:
+    id: mycard2  # Set the ID here
+    orientation: 'horizontal'
+    theme_bg_color: "Custom"
+    md_bg_color: "#008080"
+    radius: dp(16)
+    padding: dp(30)
+    size_hint: None, None
+    size: dp(145), dp(75)
+
+    MDLabel:
+        id: text
+        pos_hint: {"top": 1}
+        markup: True
+        text: '[color="black"][size=16sp][b] Scan[/b][/size][/color]'
+
+    MDIcon:
+        id: icon
+        pos_hint: {"center_y": .5}
+        icon: 'barcode-scan'
+        theme_font_size: "Custom"
+        font_size: sp(24)
+        theme_icon_color:"Custom"
+        icon_color:"black"
+
+<MyCard3@MDCard>:
+    id: mycard3  # Set the ID here
+    orientation: 'horizontal'
+    theme_bg_color: "Custom"
+    md_bg_color: "#008080"
+    radius: dp(16)
+    padding: dp(27)
+    size_hint: None, None
+    size: dp(145), dp(75)
+
+    MDLabel:
+        id: text
+        pos_hint: {"top": 1}
+        markup: True
+        text: '[color="black"][size=16sp][b] Rate us[/b][/size][/color]'
+
+    MDIcon:
+        id: icon
+        pos_hint: {"center_y": .5}
+        icon: 'star-face'
+        theme_font_size: "Custom"
+        font_size: sp(24)
+        theme_icon_color:"Custom"
+        icon_color:"black"
+
+
+<MyCard4@MDCard>:
+    orientation: 'horizontal'
+    theme_bg_color: "Custom"
+    md_bg_color: "#008080"
+    radius: dp(16)
+    padding: dp(30)
+    size_hint: None, None
+    size: dp(145), dp(75)
+
+    MDLabel:
+        id: text
+        pos_hint: {"top": 1}
+        markup: True
+        text: '[color="black"][size=16sp][b] Help[/b][/size][/color]'
+
+    MDIcon:
+        id: icon
+        pos_hint: {"center_y": .5}
+        icon: 'help-circle'
+        theme_font_size: "Custom"
+        font_size: sp(24)
+        theme_icon_color:"Custom"
+        icon_color:"black"
+        
