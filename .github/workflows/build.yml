@@ -55,8 +55,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: package
-<<<<<<< HEAD
           path: bin/*.apk
-=======
-          path: bin/*.apk
->>>>>>> cd5525214c547b1ddf11cce5888b0d6753b9a9a7
